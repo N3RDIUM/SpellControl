@@ -12,10 +12,9 @@ with open('actions/index.json') as f:
 # Mainloop
 while True:
     try:
-        # values = listener.listen()
-        # for index, value in enumerate(values):
-        #     values[index] = value.lower()
-        values = ["avada kedavra"]
+        values = listener.listen()
+        for index, value in enumerate(values):
+            values[index] = value.lower()
 
         # Compare values with actions and find the best match
         best_match = None
