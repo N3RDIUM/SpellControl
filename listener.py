@@ -11,21 +11,19 @@ class Listener:
     def listen(self):
         values = []
         try:
-            print("Say something!")
-            with self.m as source: audio = self.r.listen(source)
-            print("Got it! Now to recognize it...")
+            print("\rWhat's the spell?", end="")
+            with self.m as source: audio = self.r.listen(source, timeout=5, phrase_time_limit=5)
+            print("\rGot it! Recognizing...", end="")
             try:
                 # recognize speech using Google Speech Recognition
                 values = [
-                    self.r.recognize_google(audio),
                     self.r.recognize_google(audio, language="la"),
                 ]
-
-                # we need some special handling here to correctly print unicode characters to standard output
-                if str is bytes:  # this version of Python uses bytes for strings (Python 2)
-                    print(u"You said {}".format(values).encode("utf-8"))
-                else:  # this version of Python uses unicode for strings (Python 3+)
-                    print("You said {}".format(values))
+                if values[0] == "":
+                    end = "\r"
+                else:
+                    end = "\n"
+                print("\rRecognization complete!", end=end)
             except sr.UnknownValueError:
                 pass
             except sr.RequestError as e:

@@ -1,3 +1,7 @@
 {
-    "avada kedavra": "kill"
+    "avada kedavra": "kill",
+    "lumos": "increase_brightness",
+    "nox": "decrease_brightness",
+    "lumos maxima": "max_brightness",
+    "nox maxima": "min_brightness"
 }

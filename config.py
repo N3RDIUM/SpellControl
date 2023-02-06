@@ -1,1 +1,1 @@
-FUZZ_MIN = 95
+FUZZ_MIN = 64
