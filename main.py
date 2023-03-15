@@ -1,10 +1,11 @@
-from listener import Listener
-from config import FUZZ_MIN
-from fuzzywuzzy import fuzz
+# imports
+from listener import Listener # Import our listener class
+from config import FUZZ_MIN # Get the config value
+from fuzzywuzzy import fuzz # For fuzzy matching
 import os
 import sys
-import json
-import subprocess
+import json # For reading the spell config file
+import subprocess # For starting the callback py script
 
 # update packages
 os.system(f"{sys.executable} -m pip install -r requirements.txt")
